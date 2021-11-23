@@ -1,5 +1,7 @@
-const TEXT_URL = "./data/texts.csv";
-const CARDS_URL = "./data/cards.csv";
+const TEXT_URL = './data/texts.csv';
+const CARDS_URL = './data/cards.csv';
+
+const WEBSITE_BASE = 'https://bushmin.github.io/memories/';
 
 const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
 
@@ -44,7 +46,7 @@ const displayCards = (cards) => {
         } else {
             element.innerText = card[4];
         }
-        element.href = `/${card[0]}`;
+        element.href = WEBSITE_BASE + card[0];
 
         root.appendChild(element);
         root.appendChild(document.createElement("br"));
