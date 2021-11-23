@@ -35,7 +35,8 @@
   <script src="utils.js"></script>
 
   <script type="text/javascript">
-    const page = window.location.pathname.slice(1); // если 1 вложенность
+    const pages = window.location.pathname.split('/');
+    const pageName = pages[pages.length - 1];
 
     const CARDS_URL = "./data/cards.csv";
     const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
@@ -46,7 +47,7 @@
     const cardsCallback = (data) => {
         const parsedData = CSVToArray(data);
         console.log(data, parsedData)
-        displayCard(parsedData, page);
+        displayCard(parsedData, pageName);
     }
 
     const displayCard = (cards, page) => {
