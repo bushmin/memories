@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Ivan Bushmin" />
+    <meta name="description" content="" />
+    <meta property="og:url" content="" />
+
+    <link rel="image_src" href="">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Ivan Bushmin memories</title>
+
+    <style>
+      * {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header"></h1>
+    <div id="cardholder"></div>
+  </body>
+
+  <script src="utils.js"></script>
+
+  <script type="text/javascript">
+    const page = window.location.pathname.slice(1); // если 1 вложенность
+
+    const CARDS_URL = "./data/cards.csv";
+    const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
+
+    fetch(CARDS_URL)
+    .then((response) => response.text().then(cardsCallback));
+
+    const cardsCallback = (data) => {
+        const parsedData = CSVToArray(data);
+        console.log(data, parsedData)
+        displayCard(parsedData, page);
+    }
+
+    const displayCard = (cards, page) => {
+        card = cards.find(el => el[0]===page);
+        if (!card) {
+          document.getElementById("header").innerText = '404'; //отдельный метод с редиректом на page-404
+          return;
+        };
+
+        const root = document.getElementById('cardholder');
+
+        let element = document.createElement("a");
+        if (LANGUAGE === 'ru') {
+            element.innerText = card[3];
+        } else {
+            element.innerText = card[4];
+        }
+        element.href = card[2];
+
+        root.appendChild(element);
+        root.appendChild(document.createElement("br"));
+        root.appendChild(document.createElement("br"));
+
+        let img = document.createElement("img");
+        img.src = card[1];
+        img.width = 300;
+        root.appendChild(img);
+
+}
+
+  </script>
+</html>
