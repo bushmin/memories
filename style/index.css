@@ -73,6 +73,7 @@ header .link {
     border-radius: 50%;
     left: -100px;
     top: -100px;
+    -webkit-backdrop-filter: invert(100%);
     backdrop-filter: invert(100%);
     position: absolute;
     transform: translate(-35px, -35px);
