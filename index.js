@@ -1,27 +1,3 @@
-const TEXT_URL = './data/texts.csv';
-const CARDS_URL = './data/cards.csv';
-
-const WEBSITE_BASE = 'https://bushmin.github.io/memories/';
-
-const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
-
-fetch(TEXT_URL)
-  .then((response) => response.text().then(textCallback));
-
-fetch(CARDS_URL)
-.then((response) => response.text().then(cardsCallback));
-
-const textCallback = (data) => {
-    const parsedData = CSVToArray(data);
-    changeTexts(parsedData);
-}
-
-const cardsCallback = (data) => {
-    const parsedData = CSVToArray(data);
-    console.log(data, parsedData)
-    displayCards(parsedData);
-}
-
 const changeTexts = (texts, locale) => {
     for (const text of texts) {
         const element = document.getElementById(text[0]);
@@ -55,3 +31,18 @@ const displayCards = (cards) => {
 
     } 
 }
+( async() => {
+    const [texts, cards] = await Promise.all([
+        getLocalFile(TEXT_URL),
+        getLocalFile(CARDS_URL)
+    ]);
+    
+    changeTexts(texts);
+    displayCards(cards);
+})()
+
+const mouseCircle = document.getElementById('mouse-circle');
+document.addEventListener('mousemove', function(e) {
+    mouseCircle.style.left = e.pageX + 'px';
+    mouseCircle.style.top = e.pageY + 'px';
+});

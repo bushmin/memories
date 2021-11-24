@@ -1,3 +1,17 @@
+const TEXT_URL = './data/texts.csv';
+const CARDS_URL = './data/cards.csv';
+
+const WEBSITE_BASE = 'https://bushmin.github.io/memories/';
+
+const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
+
+const getLocalFile = async (url) => {
+    const response = await fetch(url);
+    const data = await response.text();
+    return CSVToArray(data);
+}
+    
+    
     // ref: http://stackoverflow.com/a/1293163/2343
     function CSVToArray( strData, strDelimiter ){
         strDelimiter = (strDelimiter || ",");

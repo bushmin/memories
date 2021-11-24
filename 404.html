@@ -20,12 +20,6 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>Ivan Bushmin memories</title>
-
-    <style>
-      * {
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
     <h1 id="header"></h1>
@@ -36,7 +30,8 @@
 
   <script type="text/javascript">
     const pages = window.location.pathname.split('/');
-    const pageName = pages[pages.length - 1];
+    //const pageName = pages[pages.length - 1];
+    const pageName = 'hollow-knight';
 
     const CARDS_URL = "./data/cards.csv";
     const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
