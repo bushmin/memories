@@ -3,7 +3,7 @@ const changeTexts = (texts, locale) => {
         const element = document.getElementById(text[0]);
         if (!element) continue;
 
-        if (LANGUAGE === 'ru' && locale === 'ru') {
+        if (LANGUAGE === 'ru' || locale === 'ru') {
             element.innerText = text[2];
         } else {
             element.innerText = text[1];
@@ -38,7 +38,7 @@ const displayCards = (cards) => {
     ]);
     
     changeTexts(texts);
-    displayCards(cards);
+    //displayCards(cards);
 })()
 
 const mouseCircle = document.getElementById('mouse-circle');

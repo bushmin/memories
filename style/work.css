@@ -1,0 +1,50 @@
+.main {
+  width: 100%;
+  padding: 0 30px;
+}
+
+.work__wrapper {
+   padding: 64px 0 30px;
+   border-bottom: 2px solid #000;
+}
+
+.work__header {
+  font-family: 'CraftworkGrotesk';
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 44px;
+  padding-bottom: 8px;
+}
+
+.work__time {
+  padding-bottom: 13px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.work__description {
+  padding-bottom: 28px;
+}
+
+.work__link {
+  display: inline-block;
+  padding: 10px 52px 10px 24px;
+  background: #000;
+  color: #fff;
+  border-radius: 54px;
+  position: relative;
+}
+
+.work__link:after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 0;
+  bottom: 0;
+  display: block;
+  background: url("../assets/icons/link.svg") no-repeat bottom right;
+  background-size: 18px;
+  width: 18px;
+  height: 18px;
+  margin: auto 0 auto 0;
+  padding-top: 4px;
+}
