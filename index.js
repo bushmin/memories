@@ -43,6 +43,6 @@ const displayCards = (cards) => {
 
 const mouseCircle = document.getElementById('mouse-circle');
 document.addEventListener('mousemove', function(e) {
-    mouseCircle.style.left = e.pageX + 'px';
-    mouseCircle.style.top = e.pageY + 'px';
+    mouseCircle.style.left = e.x + 'px';
+    mouseCircle.style.top = e.y + 'px';
 });
