@@ -36,9 +36,14 @@ html {
   font-size: 24px;
   line-height: 32px;
   color: black;
-  cursor: none;
+  overflow: hidden auto;
 }
 
+@supports (backdrop-filter: invert(100%)) or (-webkit-backdrop-filter: invert(100%)) {
+  html {
+    cursor: none;
+  }
+}
 
 header {
   font-family: 'CraftworkGrotesk';
@@ -49,7 +54,7 @@ header {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 0;
+  padding: 24px 0 0 20px;
   font-size: 32px;
   line-height: 44px;
 }
@@ -81,7 +86,6 @@ header .link {
   margin-right: 30px;
   color: black;
   text-decoration: none;
-  border-bottom: 2px solid black;
   cursor: pointer;
 }
 
@@ -147,3 +151,46 @@ header .link {
 
 summary {display: block;}
 ::-webkit-details-marker {display: none;}
+
+
+@media screen and (max-width: 1400px) {
+  .contact-link-block {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  header {
+    width: calc(100% - 36px);
+    margin: 16px auto 0;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 17px;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  header .logo {
+    color: white;
+    width: 100%;
+  }
+  .logo__img {
+    width: 40px;
+    height: 40px;
+  }
+  .logo__name {
+    font-size: 15px;
+    line-height: 17px;
+    margin-left: 12px;
+  }
+
+  header .link {
+    margin-right: 30px;
+    color: white;
+    height: 52px;
+    padding: 20px;
+  }
+}
