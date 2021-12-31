@@ -25,7 +25,7 @@
   font-style:  normal;
   font-weight: 900;
   font-display: swap;
-  src: url("../assets/fonts/CraftworkGrotesk-Bold.woff2");
+  src: url("../assets/fonts/CraftworkGrotesk-Heavy.woff2");
 }
 
 html {
@@ -43,6 +43,10 @@ html {
   html {
     cursor: none;
   }
+}
+
+body {
+  overflow: hidden;
 }
 
 header {
@@ -120,6 +124,7 @@ header .link {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .contact-link {
@@ -188,9 +193,11 @@ summary {display: block;}
   }
 
   header .link {
-    margin-right: 30px;
-    color: white;
-    height: 52px;
-    padding: 20px;
+   display: none;
   }
+
+  .contact-link-block{
+    display: none;
+  }
+  
 }

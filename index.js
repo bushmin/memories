@@ -4,9 +4,9 @@ const changeTexts = (texts, locale) => {
         if (!element) continue;
 
         if (LANGUAGE === 'ru' || locale === 'ru') {
-            element.innerText = text[2];
+            element.innerHTML = text[2];
         } else {
-            element.innerText = text[1];
+            element.innerHTML = text[1];
         }
 
     } 
