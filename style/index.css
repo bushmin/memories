@@ -78,11 +78,10 @@ header .logo {
   border-radius: 50%;
 }
 .logo__name {
-  width: 140px;
   font-weight: 900;
   font-size: 24px;
   line-height: 28px;
-  margin-left: 20px;
+  padding: 0 48px 0 20px;
   border-right: 2px solid rgba(0, 0, 0, 0.3);;
 }
 
@@ -101,6 +100,7 @@ header .link {
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
+  z-index: 100;
 }
 
 #mouse-circle {

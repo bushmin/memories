@@ -127,11 +127,39 @@ section {
   display: flex;
   flex-direction: row-reverse;
 }
-
 .section__img img {
   width: 160px;
   height: 160px;
   margin-right: -64px;
+}
+
+.section__img-love {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  height: 580px;
+  width: 1200px;
+}
+.section__img-love--mobile{
+  display: none;
+}
+.section__img-love img {
+  width: 220px;
+  border-radius: 32px;
+  margin-right: 25px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.section__img__big{
+  height: 580px;
+}
+.section__img__medium{
+  height: 335px;
+}
+.section__img__small{
+  height: 220px;
 }
 
 .section__button {
@@ -234,6 +262,44 @@ section {
     margin-left: -32px;
     filter: drop-shadow(0px 12px 44px rgba(0, 0, 0, 0.24));
   }
+  .section__img-love {
+    display: none;
+
+  }
+  .section__img-love--mobile {
+    display: block;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 130px;
+    position: relative;
+  }
+  .section__img-love--mobile img {
+    width: 220px;
+    height: 220px;
+    border-radius: 32px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  .section__img-love--mobile img:nth-child(1) {
+    transform: translate(-15px, 19px) rotate(-4deg);
+  }
+  .section__img-love--mobile img:nth-child(2) {
+    transform: rotate(2deg);
+  }
+  .section__img-love--mobile img:nth-child(3) {
+    transform: translate(20px, 22px) rotate(-7deg);
+  }
+  .section__img-love--mobile:after {
+    content: '';
+    position: absolute;
+    bottom: -110px;
+    left: 220px;
+    width: 130px;
+    height: 130px;
+    background-image: url('../assets/icons/star3.svg');
+    background-position: center;
+    background-size: contain;
+  }
 
   .section__img img {
     width: 80px;
@@ -297,11 +363,31 @@ section {
     padding: 48px 16px 124px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-}
+  }
 
-.section__button {
-  max-width: calc(100vw - 32px);
-}
+  .section__img-love--mobile {
+    flex-direction: column;
+    margin-bottom: -130px;
+  }
+  .section__img-love--mobile:after {
+    top: 20px;
+    left: -100px;
+  }
+  .section__img-love--mobile img:nth-child(1) {
+    transform: translate(35px, 0px) rotate(2deg);
+  }
+  .section__img-love--mobile img:nth-child(2) {
+    transform: translate(-45px, -50px) rotate(-7deg);
+    z-index: 2;
+  }
+  .section__img-love--mobile img:nth-child(3) {
+    transform: translate(40px, -200px) rotate(-4deg);
+  }
+  
+
+  .section__button {
+    max-width: calc(100vw - 32px);
+  }
 
 }
 
