@@ -2,7 +2,7 @@ const TEXT_URL = './data/texts.csv';
 const CARDS_URL = './data/cards.csv';
 const WORKS_URL = './data/works.csv';
 
-const WEBSITE_BASE = 'https://bushmin.github.io/memories/';
+const WEBSITE_BASE = 'https://nozomu.ru/';
 
 const LANGUAGE = (navigator.language || navigator.userLanguage).split('-')[0];
 
