@@ -46,3 +46,9 @@ document.addEventListener('mousemove', function(e) {
     mouseCircle.style.left = e.x + 'px';
     mouseCircle.style.top = e.y + 'px';
 });
+
+const toggleMobileMenu = () => {
+    window.scrollTo(0, 0);
+    document.getElementById('mobile-menu').classList.toggle('visible');
+    document.documentElement.classList.toggle('no-scroll');
+}

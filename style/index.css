@@ -38,6 +38,9 @@ html {
   color: black;
   overflow: hidden auto;
 }
+.no-scroll {
+  overflow: hidden;
+}
 
 @supports (backdrop-filter: invert(100%)) or (-webkit-backdrop-filter: invert(100%)) {
   html {
@@ -152,16 +155,13 @@ header .link {
 .contact-link:after {
   content: "";
   position: absolute;
-  left: 100%;
-  top: 0;
-  bottom: 0;
-  display: block;
-  background: url("../assets/icons/link.svg") no-repeat bottom right;
-  background-size: 18px;
-  width: 18px;
-  height: 18px;
-  margin: auto 0 auto 0;
-  padding: 4px 0 0 8px;
+  background: url("../assets/icons/link.svg") no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-left: 0.3em;
+  margin-top: 0.4em;
+  width: 0.7em;
+  height: 0.7em;
 }
 
 .copyright {
@@ -173,6 +173,51 @@ header .link {
 
 summary {display: block;}
 ::-webkit-details-marker {display: none;}
+
+#mobile-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 80px 0;
+  z-index: 50;
+  transition: right 0.4s ease-in-out;
+  background-color: black;
+}
+
+#mobile-menu.visible {
+  right: 0;
+}
+
+.link-block {
+  display: flex;
+  flex-direction: column;
+  padding-left: 28px;
+  padding-top: 30px;
+}
+.mobile-link {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 44px;
+  padding: 16px 0;
+  color: white;
+  text-decoration: none;
+}
+.mobile-link:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+#mobile-menu .contact-link {
+  opacity: 0.5;
+  position: relative;
+}
+#mobile-menu .contact-link:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
 
 
 @media screen and (max-width: 1400px) {
@@ -198,6 +243,7 @@ summary {display: block;}
 
   header .logo {
     color: white;
+    z-index: 100;
   }
   .logo__img {
     width: 40px;
@@ -214,46 +260,27 @@ summary {display: block;}
    display: none;
   }
 
-  .mobile-menu {
-    display: block;
-  }
-
-  #menu__toggle {
-    opacity: 0;
-  }
   .menu__btn {
     display: flex;
     align-items: center;
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    position: absolute;
+    top: 27px;
+    right: 32px;
     width: 26px;
-    height: 26px;
+    height:  26px;
     cursor: pointer;
-    z-index: 1;
     background-image: url('../assets/icons/burger.svg');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
   }
-
-  .menu__box {
-    display: block;
-    position: fixed;
-    visibility: hidden;
-    top: 0;
-    right: -100vh;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 80px 0;
-    z-index: 50;
-    background-color: black;
+  #mobile-menu .menu__btn {
+    background-image: url('../assets/icons/add.svg');
+    transform: rotate(45deg);
   }
 
-  #menu__toggle:checked ~ .menu__box {
-    visibility: visible;
-    right: 0;
+  .contact-link:after {
+    margin-top: 0.25em;
   }
 
   .contact-link-block{
