@@ -1,6 +1,30 @@
+html {
+  background-color: #DFE1E4;
+}
+
 .main {
   width: 100%;
   padding: 0 30px;
+}
+
+.section-header {
+  padding: 100px 0 48px;
+}
+.section-header .header {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'CraftworkGrotesk';
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 80px;
+  padding-bottom: 48px;
+}
+.section-header .subheader {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 48px;
 }
 
 .work__wrapper {
