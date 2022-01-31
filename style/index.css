@@ -121,6 +121,10 @@ header .link {
   position: absolute;
   transform: translate(-35px, -35px);
   pointer-events: none;
+  font-size: 50px;
+  line-height: 66px;
+  text-align: center;
+
 }
 
 @media (hover: none) {

@@ -4,7 +4,6 @@ html {
 
 .main {
   width: 100%;
-  padding: 0 30px;
 }
 
 .section-header {
@@ -27,9 +26,30 @@ html {
   line-height: 48px;
 }
 
-.work__wrapper {
+.work__content {
    padding: 64px 0 30px;
-   border-bottom: 2px solid #000;
+   border-radius: 64px;
+   position: relative;
+}
+.work__content::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 2px;
+  background-color: #000;
+}
+.work__content:hover {
+  background: #000;
+  color: #fff;
+}
+.work__summary, .work__additional {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .work__header {
@@ -44,6 +64,9 @@ html {
   padding-bottom: 13px;
   color: rgba(0, 0, 0, 0.7);
 }
+.work__content:hover .work__time {
+  color: rgba(255, 255, 255, 0.7);
+}
 
 .work__description {
   padding-bottom: 28px;
@@ -56,6 +79,10 @@ html {
   color: #fff;
   border-radius: 54px;
   position: relative;
+}
+.work__content:hover .work__link {
+  background: #fff;
+  color: #000;
 }
 
 .work__link:after {
@@ -71,4 +98,8 @@ html {
   height: 18px;
   margin: auto 0 auto 0;
   padding-top: 4px;
+}
+
+.work__content:hover .work__link:after {
+  filter: invert(1);
 }

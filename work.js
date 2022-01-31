@@ -16,8 +16,10 @@ const displayWorks = (works, locale) => {
     for (const work of works) {
         const root = document.getElementById('workholder');
 
+
         const details = document.createElement("details");
-        details.classList.add('work__wrapper');
+        details.classList.add('work__content');
+
         const summary = document.createElement("summary");
         summary.classList.add('work__summary');
         const additional = document.createElement("div");
@@ -52,6 +54,7 @@ const displayWorks = (works, locale) => {
         link.classList.add('work__link');
         link.href = 'https://' + work[4];
         link.target = '_blank';
+        link.onclick = (e) => e.stopPropagation();
 
         summary.appendChild(header);
         summary.appendChild(subheader);
@@ -62,6 +65,8 @@ const displayWorks = (works, locale) => {
         details.appendChild(additional);
 
         root.appendChild(details);
+
+        watchDetails(details);
     } 
 }
 ( async() => {
@@ -79,3 +84,20 @@ document.addEventListener('mousemove', function(e) {
     mouseCircle.style.left = e.x + 'px';
     mouseCircle.style.top = e.y + 'px';
 });
+
+const watchDetails = function(work) {
+    work.addEventListener('mouseenter', function(e) {
+        const text = work.open ? '-' : '+';
+        mouseCircle.innerText = text;
+        
+    });
+    work.addEventListener('mouseleave', function(e) {
+        mouseCircle.innerText = '';
+    })
+    work.addEventListener('click', function(e) {
+        e.preventDefault();
+        const text = work.open ? '+' : '-';
+        mouseCircle.innerText = text;
+        work.open = !work.open;
+    })
+}
